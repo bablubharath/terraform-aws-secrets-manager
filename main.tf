@@ -76,3 +76,17 @@ resource "aws_secretsmanager_secret_rotation" "rsm-sr" {
     automatically_after_days = lookup(each.value, "automatically_after_days", var.automatically_after_days)
   }
 }
+  
+resource "random_password" "this" {
+  keepers          = var.keepers
+  length           = var.length
+  lower            = var.lower
+  min_lower        = var.min_lower
+  min_numeric      = var.min_numeric
+  min_special      = var.min_special
+  min_upper        = var.min_upper
+  number           = var.number
+  upper            = var.upper
+  special          = var.special
+  override_special = var.override_special
+}
